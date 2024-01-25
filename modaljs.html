@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Modal Example</title>
+  <style>
+    .modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover {
+  color: black;
+  cursor: pointer;
+}
+/* =================table design======================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #0d0123;
+  color:#fff;
+  font-family:arial;
+  text-transform: uppercase;
+  font-weight:300;
+}
+
+  </style>
+</head>
+<body>
+    <table>
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Age</th>
+            <th>Genre</th>
+            <th>Status</th>
+            <th colspan="3">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Data 1</td>
+            <td>Data 2</td>
+            <td>Data 3</td>
+            <td>Data 3</td>
+            <td>Data 3</td>
+            <td><button id="openModalBtn">Ajouter Conge</button></td>
+            <td><button>Modifier</button></td>
+            <td><button>Supprimer</button></td>
+          </tr>
+        </tbody>
+      </table>
+
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeModalBtn">&times;</span>
+    <h1>Ajouter Conge</h1>
+    <form action="">
+        <label for="">Nom </label>
+        <input type="text" name="" id=""><br>
+        <label for="">Prenom </label>
+        <input type="text" name="" id=""><br>
+        <label for="">Age </label>
+        <input type="text" name="" id=""><br>
+        <label for="">Genre</label>
+        <input type="password" name="" id=""><br>
+        <button>Ajouter</button>
+    </form>
+  </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+  const openModalBtn = document.getElementById('openModalBtn');
+  const closeModalBtn = document.getElementById('closeModalBtn');
+  const modal = document.getElementById('myModal');
+
+  openModalBtn.addEventListener('click', function () {
+    modal.style.display = 'block';
+  });
+
+  closeModalBtn.addEventListener('click', function () {
+    modal.style.display = 'none';
+  });
+
+  window.addEventListener('click', function (event) {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+});
+
+</script>
+</body>
+</html>
